@@ -14,7 +14,7 @@ def hash(value, arg):
     """
     arg = str(arg).lower()
     if not arg in get_available_hashes():
-        raise TemplateSyntaxError("The %s hash algorithm does not exist." % arg)
+        raise TemplateSyntaxError("The %s hash algorithm does not exist. Supported algorithms are: %" % (arg, get_available_hashes()))
     try:
         f = getattr(hashlib, arg)
         hashed = f(value).hexdigest()
